@@ -175,9 +175,9 @@ const MatchSummary = () => {
               <div className="row mt-5 text-center">
                 <div className="col d-flex flex-column justify-content-center">
                   {scores?.sets?.map((s,index)=>(
-                    <div className='row mb-3'>
-                      <div className="col d-flex justify-content-center">
-                        <div className="card" style={{minWidth:"25rem"}}>
+                    <div className='row mb-5'>
+                      <div className="col d-flex justify-content-center p-0">
+                        <div className="card" style={{minWidth:"450px"}}>
                           <div className="card-body">
                             <div className="row mb-2">
                               <div className="col">
