@@ -181,7 +181,7 @@ const ScoreCard = ({ tournament, teamNames, teamPlayers, matchDate, matchResult,
                                 <View key={i} style={styles.tableRow}>
                                     <Text style={styles.tableCol}><Text style={styles.tableCell}>{i + 1}</Text></Text>
                                     <Text style={styles.tableCol}><Text style={[styles.tableCell, styles.labelA]}>{g.teamA}</Text></Text>
-                                    <Text style={styles.tableCol}><Text style={[styles.tableCell, styles.labelA]}>{g.teamB}</Text></Text>
+                                    <Text style={styles.tableCol}><Text style={[styles.tableCell, styles.labelB]}>{g.teamB}</Text></Text>
                                     <Text style={styles.tableCol}>
                                         {g.result === teamNames.teamA && <Text style={[styles.tableCell, styles.label, styles.labelA]}>{g.result}</Text>}
                                         {g.result === teamNames.teamB && <Text style={[styles.tableCell, styles.label, styles.labelB]}>{g.result}</Text>}
