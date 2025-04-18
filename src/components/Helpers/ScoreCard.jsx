@@ -214,7 +214,7 @@ const ScoreCard = ({ tournament, teamNames, teamPlayers, matchDate, matchResult,
                 ))}
                 <View style={styles.section}>
                     <Text>This is a digitally generated Score Card and doesn't require any signature for official use.</Text>
-                    <Text>Please contact the organiser for any queries incase of any conflict in result.</Text>
+                    <Text>Please contact the organiser for any queries regarding scoresheet.</Text>
                 </View>
             </Page>
         </Document>
