@@ -103,11 +103,11 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 10
-      },
-      logo: {
+    },
+    logo: {
         width: 50,
         height: 50,
-      },
+    },
 });
 
 const ScoreCard = ({ tournament, teamNames, teamPlayers, matchDate, matchResult, scores }) => {
@@ -120,10 +120,10 @@ const ScoreCard = ({ tournament, teamNames, teamPlayers, matchDate, matchResult,
             <Page size="A4" style={styles.page}>
                 <View style={styles.imageContainer}>
                     <Image
-                    style={styles.logo}
-                    src={logo}
+                        style={styles.logo}
+                        src={logo}
                     />
-                    <Text style={[styles.headingCenter, {fontSize: 24}]}>NIT JAMSHEDPUR LAWN TENNIS</Text>
+                    <Text style={[styles.headingCenter, { fontSize: 24 }]}>NIT JAMSHEDPUR LAWN TENNIS</Text>
                 </View>
                 <Text style={styles.headingCenter}>MATCH SUMMARY</Text>
                 <View style={styles.section}>
@@ -149,15 +149,15 @@ const ScoreCard = ({ tournament, teamNames, teamPlayers, matchDate, matchResult,
                             <View>
                                 <Text style={{ marginTop: 4 }}>
                                     MATCH WINNER: {
-                                        matchResult===teamNames.teamA?
-                                        <Text style={[styles.label, styles.labelA]}>{matchResult}</Text>:
-                                        <Text style={[styles.label, styles.labelB]}>{matchResult}</Text>
+                                        matchResult === teamNames.teamA ?
+                                            <Text style={[styles.label, styles.labelA]}>{matchResult}</Text> :
+                                            <Text style={[styles.label, styles.labelB]}>{matchResult}</Text>
                                     }
                                 </Text>
                             </View>
                             <View>
                                 <Text style={{ marginTop: 4 }}>
-                                    SET SCORE: 
+                                    SET SCORE:
                                     <Text style={[styles.label, styles.labelA]}> {calculateSetWin(teamNames.teamA)}</Text>
                                     <Text> - </Text>
                                     <Text style={[styles.label, styles.labelB]}>{calculateSetWin(teamNames.teamB)}</Text>
