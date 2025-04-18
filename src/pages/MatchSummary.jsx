@@ -1,13 +1,12 @@
-import React, { useEffect, useRef, useState } from 'react'
-import '../App.css'
+import React, { useEffect, useState } from 'react'
 import Layout from '../components/Layout/Layout'
 import toast from 'react-hot-toast';
 import axios from 'axios';
 import { useNavigate, useParams } from 'react-router-dom';
 import { IoArrowBackCircleOutline } from 'react-icons/io5';
 import Loading from '../components/Loading';
-import {useReactToPrint} from 'react-to-print'
-import { MdOutlineFileDownload } from "react-icons/md";
+import ScoreCard from '../components/Helpers/ScoreCard';
+import { PDFDownloadLink } from '@react-pdf/renderer';
 
 const MatchSummary = () => {
     const [loading,setloading] = useState(true);
@@ -76,11 +75,6 @@ const MatchSummary = () => {
       getMatchDetails();
   },[params?.id]);
 
-  const contentRef = useRef();
-  const handleDownload = useReactToPrint({ 
-    contentRef
-  });
-
 
   return (
     <Layout title={`Match Summary ${teamNames.teamA} vs ${teamNames.teamB}`}>
@@ -91,12 +85,7 @@ const MatchSummary = () => {
             </div>
           </div>
           <div className="row">
-            <div className="col" ref={contentRef} >
-              <div className='row mb-3 d-none print'>
-                <div className='col text-center'>
-                  NIT JAMSHEDPUR LAWN TENNIS
-                </div>
-              </div>
+            <div className="col" >
               <div className="row text-center">
                 <div className="col">
                   <h2>MATCH SUMMARY</h2>
@@ -161,10 +150,32 @@ const MatchSummary = () => {
                               </div>
                             </div>
                           </div>
-                          <div className="row mt-1 no-print">
-                            <div className="col">
-                              <button className='p-2 rounded btn btn-primary' onClick={handleDownload}><MdOutlineFileDownload size={20}/> Download Scorecard</button>
-                            </div>
+                          <div className="row mt-1">
+                            <div className="col mt-3 mb-2">
+                                <PDFDownloadLink
+                                  document={
+                                    <ScoreCard
+                                      tournament={tournament}
+                                      teamNames={teamNames}
+                                      teamPlayers={teamPlayers}
+                                      matchDate={matchDate}
+                                      matchResult={matchResult}
+                                      scores={scores}
+                                    />
+                                  }
+                                  fileName={`Match Summary ${teamNames?.teamA} vs ${teamNames?.teamB}.pdf`}
+                                  style={{
+                                    textDecoration: 'none',
+                                    padding: '10px 20px',
+                                    color: '#fff',
+                                    backgroundColor: '#007bff',
+                                    borderRadius: 5,
+                                    fontWeight: 'bold',
+                                  }}
+                                >
+                                  {({ loading }) => (loading ? 'Preparing document...' : 'Download Match Summary')}
+                                </PDFDownloadLink>
+                              </div>
                           </div>
                         </div>
                       </div>
