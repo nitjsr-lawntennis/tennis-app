@@ -52,7 +52,7 @@ const CreateTournament = () => {
             <div className="col-md-3 mt-3">
                     {auth?.user?.role===1?<AdminSideMenu/>:<UserSideMenu/>}
                 </div>
-                <div className="col-md-9">
+                <div className="col-md-9 mb-2">
                     <div className='row text-center mb-2'>
                         <div className="col">
                             <h1>CREATE TOURNAMENT</h1>

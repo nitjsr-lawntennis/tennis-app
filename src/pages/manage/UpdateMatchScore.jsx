@@ -90,7 +90,6 @@ const UpdateMatchScore = () => {
             result:"NA"
         })
         setscores({...newSet});
-        handleSave();
     }
 
     const handleAddSet = ()=>{
@@ -136,7 +135,7 @@ const UpdateMatchScore = () => {
     }
 
     const setResultFromGameResult = ()=>{
-        let setResult = new Array(scores?.gameResult?.length).fill("NA");;
+        let setResult = new Array(scores?.gameResult?.length).fill("NA");
         scores?.gameResult?.map((item,ind)=>{
             if(item[0]>item[1]){
                 setResult[ind]=teamNames?.teamA;
@@ -148,6 +147,7 @@ const UpdateMatchScore = () => {
         })
         return setResult;
     }
+
 
     const handleGameWin = (e)=>{
         const winningTeam = e.target.value;
