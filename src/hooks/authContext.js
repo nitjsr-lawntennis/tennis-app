@@ -25,6 +25,23 @@ const AuthProvider = ({children})=>{
         //eslint-disable-next-line
     },[]);
 
+    useEffect(()=>{
+        const verifyUser = async ()=>{
+            try{
+                const {data} = await axios.get(`${process.env.REACT_APP_API}/lawntennis/api/v1/auth/verification`,{
+                    Authorization : auth?.token
+                });
+            } catch(error){
+                const {data} = error?.response;
+                if(data.success===false) setAuth({
+                    user:null,
+                    token:""
+                });
+            }
+        }
+        if(auth?.token !== "") verifyUser();
+    },[auth?.token])
+
     return (
         <AuthContext.Provider value={[auth,setAuth]}>
             {children}
